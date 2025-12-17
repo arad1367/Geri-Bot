@@ -41,6 +41,14 @@ You can interact with Geri-Bot directly through our web application. The interfa
 
 ![Geri-Bot Interface](Geri-Bot.png)
 
+## Contact
+
+For any inquiries, collaboration opportunities, or questions regarding Geri-Bot, please contact:
+
+**Pejman Ebrahimi**
+*   Email: [pejman.ebrahimi77@gmail.com](mailto:pejman.ebrahimi77@gmail.com)
+*   Email: [pejman.ebrahimi@uni.li](mailto:pejman.ebrahimi@uni.li)
+
 ---
 
 *Disclaimer: Geri-Bot is an AI assistant designed for informational and supportive purposes. It is not a substitute for professional medical advice, diagnosis, or treatment.*
