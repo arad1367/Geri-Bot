@@ -12,7 +12,7 @@ import json
 OPENAI_API_KEY = "YOUR API KEY" 
 
 # We used a OpenAI model for the "Judge" 
-JUDGE_MODEL = "gpt-4o" 
+JUDGE_MODEL = "gpt-4.1" 
 BASE_MODEL = "gpt-4.1-mini-2025-04-14"
 FT_MODEL = "ft:gpt-4.1-mini-2025-04-14:personal:ageing-population-2025-12-16:CnRA8nHT"
 
@@ -280,4 +280,5 @@ print("Saved 'Figure_2_Qualitative_Metrics.png'")
 # --- FINAL SUMMARY TABLE ---
 summary = df.groupby(["Model", "Metric"])["Score"].mean().unstack()
 print("\n--- Final Results for Paper ---")
+
 print(summary)
