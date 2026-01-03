@@ -41,6 +41,10 @@ You can interact with Geri-Bot directly through our web application. The interfa
 
 ![Geri-Bot Interface](Geri-Bot.png)
 
+*   **Link to experiment:** [https://arad1367.github.io/Geri-Bot/](https://arad1367.github.io/Geri-Bot/)
+
+![Geri-Bot Interface](background.jpg)
+
 ## Contact
 
 For any inquiries, collaboration opportunities, or questions regarding Geri-Bot, please contact:
