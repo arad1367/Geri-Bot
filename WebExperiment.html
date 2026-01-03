@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Experience with AI for Geriatric Care Advice</title>
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --accent-color: #3498db;
+        --bg-fallback: #f8f9fa;
+        --text-color: #333;
+        --disabled-color: #bdc3c7;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        /* Background Image Configuration */
+        background-color: var(--bg-fallback);
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: rgba(
+          44,
+          62,
+          80,
+          0.95
+        ); /* Slight transparency for style */
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+      }
+
+      main {
+        flex: 1;
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .page-section {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.95
+        ); /* Slight transparency to blend with bg */
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: none; /* Hidden by default */
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .page-section.active {
+        display: block;
+      }
+
+      h1,
+      h2 {
+        color: var(--primary-color);
+      }
+
+      /* Header H1 specific override if needed */
+      header h1 {
+        color: white;
+        margin: 0;
+      }
+
+      .consent-box,
+      .instruction-box {
+        background-color: #f1f2f6;
+        padding: 1.5rem;
+        border-radius: 5px;
+        border-left: 5px solid var(--accent-color);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .checkbox-container {
+        margin: 1.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+      }
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: block;
+        margin-top: 1rem;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      button:disabled {
+        background-color: var(--disabled-color);
+        cursor: not-allowed;
+      }
+
+      /* Timer Styles */
+      #timer-display {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 1rem;
+        padding: 10px;
+        background: #fff;
+        border: 2px solid #eee;
+        border-radius: 5px;
+      }
+
+      /* Iframe Styles */
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Loading Spinner */
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid var(--accent-color);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .center-text {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>User Experience with AI for Geriatric Care Advice</h1>
+    </header>
+
+    <main>
+      <!-- PAGE 1: CONSENT FORM -->
+      <div id="page-1" class="page-section active">
+        <h2>Research Consent Form</h2>
+        <div class="consent-box">
+          <p>
+            Although the study will not benefit you directly, we hope the
+            information we learn will help improve the design of idea evaluation
+            platforms for improved idea selection in the future.
+          </p>
+          <p>
+            The risks associated with participating in this study are no greater
+            than those encountered in daily life. There is a potential risk of
+            loss of confidentiality. Please do not include any sensitive or
+            identifying information in the open question fields.
+          </p>
+          <p>
+            We will collect data from you, including responses to the survey
+            questions and your evaluation choices. We do not collect sensitive
+            data. This data will be used to conduct statistical analyses and to
+            publish the research findings in academic journals.
+          </p>
+          <p>
+            For your time and effort, you will be compensated. Participants who
+            fail the attention check may be disqualified without compensation.
+          </p>
+          <p>
+            If you have any questions, concerns, or feedback related to this
+            study, please contact us.
+          </p>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="consent-check" />
+          <label for="consent-check"
+            >I have read and understood the information above, and I voluntarily
+            consent to participate in this research study.</label
+          >
+        </div>
+
+        <button id="btn-page-1" disabled onclick="goToPage(2)">
+          Next Page
+        </button>
+      </div>
+
+      <!-- PAGE 2: INSTRUCTIONS -->
+      <div id="page-2" class="page-section">
+        <h2>About Geri-Bot & Instructions</h2>
+
+        <div class="instruction-box">
+          <h3>What is Geri-Bot?</h3>
+          <p>
+            Geri-Bot is a specialized Large Language Model (LLM) designed to
+            address the unique constraints and needs of geriatric care. Built by
+            fine-tuning state-of-the-art architectures, Geri-Bot focuses on
+            delivering high-quality, domain-specific care advice that
+            prioritizes safety, actionability, and cognitive accessibility for
+            elderly users.
+          </p>
+          <p><strong>Key Features:</strong></p>
+          <ul>
+            <li>
+              <strong>High Safety Standards:</strong> Prioritizes risk-averse
+              behaviors and safety protocols.
+            </li>
+            <li>
+              <strong>Cognitive Accessibility:</strong> Optimized for
+              conciseness to reduce cognitive load.
+            </li>
+            <li>
+              <strong>Actionability:</strong> Advice is structured into clear,
+              simple steps.
+            </li>
+            <li>
+              <strong>Empathetic Tone:</strong> Maintains a warm, respectful,
+              and validating tone.
+            </li>
+          </ul>
+        </div>
+
+        <div class="instruction-box" style="border-left-color: #e67e22">
+          <h3>Task Instructions</h3>
+          <p>This is a research study project.</p>
+          <ul>
+            <li>
+              You will have <strong>5 minutes</strong> to interact with
+              Geri-Bot.
+            </li>
+            <li>Please ask relevant questions regarding geriatric care.</li>
+            <li>
+              <strong
+                >You will see two responses (A and B); please review both and
+                tell us which one you prefer.</strong
+              >
+            </li>
+            <li>
+              <strong>Note:</strong> You will need an OpenAI API key to interact
+              with the bot.
+            </li>
+          </ul>
+          <p>
+            The maximum interaction time is 5 minutes. After that, you will be
+            automatically redirected to the survey page.
+          </p>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="instruction-check" />
+          <label for="instruction-check"
+            >I have read and understood the task instructions.</label
+          >
+        </div>
+
+        <button id="btn-page-2" disabled onclick="goToPage(3)">Continue</button>
+      </div>
+
+      <!-- PAGE 3: CHATBOT INTERACTION -->
+      <div id="page-3" class="page-section">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+          "
+        >
+          <h2>Chat Interaction</h2>
+          <div id="timer-display">05:00</div>
+        </div>
+
+        <div class="iframe-container">
+          <iframe
+            src="https://chat-dialogue-lab.lovable.app/"
+            allow="microphone"
+          ></iframe>
+        </div>
+
+        <div style="margin-top: 1rem; text-align: right">
+          <p id="wait-message" style="font-size: 0.9rem; color: #7f8c8d">
+            Please interact with the bot for at least 3 minutes to proceed.
+          </p>
+          <button id="btn-page-3" disabled onclick="finishInteraction()">
+            Next Page
+          </button>
+        </div>
+      </div>
+
+      <!-- PAGE 4: REDIRECT LOADING -->
+      <div id="page-4" class="page-section center-text">
+        <h2>Session Complete</h2>
+        <p>Thank you for your interaction.</p>
+        <p>You are now being redirected to the survey page...</p>
+        <div class="loader"></div>
+        <p>Please wait 5 seconds.</p>
+      </div>
+
+      <!-- PAGE 5: SURVEY -->
+      <div id="page-5" class="page-section">
+        <h2>Final Survey</h2>
+        <p>
+          Based on your experience interacting with Geri-Bot, please answer the
+          questionnaire below.
+        </p>
+        <p style="color: #c0392b; font-weight: bold">
+          Important: Please make sure you click the "Submit" button inside the
+          Google Form when you are finished.
+        </p>
+
+        <div class="iframe-container" style="height: 800px">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfwfnoAczFJEiSE2NN3G2oofI4wcGeBAFZ6xJIwEysot9Dozw/viewform?usp=header"
+          ></iframe>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // --- Page Navigation Logic ---
+      function goToPage(pageNumber) {
+        // Hide all pages
+        document
+          .querySelectorAll(".page-section")
+          .forEach((el) => el.classList.remove("active"));
+        // Show requested page
+        document.getElementById(`page-${pageNumber}`).classList.add("active");
+
+        // Specific logic when entering Page 3
+        if (pageNumber === 3) {
+          startTimer();
+        }
+
+        // Specific logic when entering Page 4
+        if (pageNumber === 4) {
+          startRedirectCountdown();
+        }
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+
+      // --- Page 1 Logic ---
+      const consentCheck = document.getElementById("consent-check");
+      const btnPage1 = document.getElementById("btn-page-1");
+
+      consentCheck.addEventListener("change", function () {
+        btnPage1.disabled = !this.checked;
+      });
+
+      // --- Page 2 Logic ---
+      const instructionCheck = document.getElementById("instruction-check");
+      const btnPage2 = document.getElementById("btn-page-2");
+
+      instructionCheck.addEventListener("change", function () {
+        btnPage2.disabled = !this.checked;
+      });
+
+      // --- Page 3 Logic (Timer) ---
+      let timeLeft = 300; // 5 minutes in seconds
+      let timerInterval;
+      const timerDisplay = document.getElementById("timer-display");
+      const btnPage3 = document.getElementById("btn-page-3");
+      const waitMessage = document.getElementById("wait-message");
+
+      function startTimer() {
+        updateTimerDisplay();
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+
+          // Logic: Enable button when timer reaches 2:00 (120 seconds left)
+          // This means 3 minutes (180 seconds) have passed.
+          if (timeLeft <= 120) {
+            btnPage3.disabled = false;
+            waitMessage.style.display = "none";
+          }
+
+          // Logic: Auto redirect when timer hits 0
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            finishInteraction();
+          }
+        }, 1000);
+      }
+
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+        // Visual warning when time is low
+        if (timeLeft < 60) {
+          timerDisplay.style.color = "#c0392b";
+          timerDisplay.style.borderColor = "#c0392b";
+        }
+      }
+
+      function finishInteraction() {
+        clearInterval(timerInterval);
+        goToPage(4);
+      }
+
+      // --- Page 4 Logic (Redirect) ---
+      function startRedirectCountdown() {
+        setTimeout(() => {
+          goToPage(5);
+        }, 5000); // 5 seconds delay
+      }
+    </script>
+  </body>
+</html>
